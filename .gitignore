@@ -69,3 +69,41 @@ publish
 
 *.opensdf
 *.sdf
+
+# Ignore bundler config
+.bundle
+#
+# # Ignore the default SQLite database.
+server/db/*.mysql3
+
+#
+# # Ignore all logfiles and tempfiles.
+server/log/*.log
+tmp
+server/.settings/
+coverage
+*.DS_Store
+server/db/schema.rb
+server/coverage/
+server/config/database.yml
+server/config/initializers/devise.rb
+server/config/secrets.yml
+
+.ruby-gemset
+.ruby-version
+server/.redcar/
+Thumbs.db
+*~
+.project
+.rvmrc
+.rbenv-version
+server/vendor/bundle/
+server/.bundle/config
+server/public/system/
+server/public/assets/
+
+!server/log/.keep
+!server/tmp/.keep
+
+server/.byebug_history
+server/config/aws.yml
