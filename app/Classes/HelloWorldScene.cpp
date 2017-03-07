@@ -93,10 +93,14 @@ bool HelloWorld::init()
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
-    
+
+    scheduleUpdate();
     return true;
 }
 
+void HelloWorld::update(float dt){
+    log("%f s", dt);
+}
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
