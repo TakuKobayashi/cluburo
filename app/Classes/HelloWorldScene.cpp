@@ -21,6 +21,27 @@ Scene* HelloWorld::createScene()
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
+    
+    // インスタンス生成
+    mWebsocket = new WebSocket("wss://websocketapisample.herokuapp.com/");
+    
+    // イベント設定
+    mWebsocket->onConnectionOpened = []() {
+        log("connection!!!!");
+        // do something
+    };
+    mWebsocket->onMessageReceived = [](std::string message) {
+        log("%s",message.c_str());
+        // do something
+    };
+    mWebsocket->onConnectionClosed = []() {
+        log("closed!!!!");
+        // do something
+    };
+    
+    // 接続開始
+    mWebsocket->connect();
+    
     //////////////////////////////
     // 1. super init first
     if ( !Layer::init() )
@@ -81,6 +102,8 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 {
     //Close the cocos2d-x game scene and quit the application
     Director::getInstance()->end();
+    // 接続終了
+    mWebsocket->close();
 
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
