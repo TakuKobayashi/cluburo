@@ -63,6 +63,7 @@
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		8F190F981E6E54D4004B658D /* WebSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F190F961E6E54D4004B658D /* WebSocket.cpp */; };
 		8F190F9E1E6E7EF1004B658D /* SoundPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F190F9C1E6E7EF1004B658D /* SoundPlayer.cpp */; };
+		8F190FA41E6EA1FD004B658D /* ResourceDownloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F190FA21E6EA1FD004B658D /* ResourceDownloader.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -169,6 +170,8 @@
 		8F190F971E6E54D4004B658D /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
 		8F190F9C1E6E7EF1004B658D /* SoundPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundPlayer.cpp; sourceTree = "<group>"; };
 		8F190F9D1E6E7EF1004B658D /* SoundPlayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundPlayer.hpp; sourceTree = "<group>"; };
+		8F190FA21E6EA1FD004B658D /* ResourceDownloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceDownloader.cpp; sourceTree = "<group>"; };
+		8F190FA31E6EA1FD004B658D /* ResourceDownloader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourceDownloader.hpp; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -323,6 +326,8 @@
 				8F190F971E6E54D4004B658D /* WebSocket.h */,
 				8F190F9C1E6E7EF1004B658D /* SoundPlayer.cpp */,
 				8F190F9D1E6E7EF1004B658D /* SoundPlayer.hpp */,
+				8F190FA21E6EA1FD004B658D /* ResourceDownloader.cpp */,
+				8F190FA31E6EA1FD004B658D /* ResourceDownloader.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -524,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				8F190FA41E6EA1FD004B658D /* ResourceDownloader.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
