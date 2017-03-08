@@ -1,0 +1,2 @@
+class DjRoomsController < ApplicationController
+end
