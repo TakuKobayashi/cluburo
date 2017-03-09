@@ -56,6 +56,19 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (7.1.4)
+    azure (0.7.7)
+      addressable (~> 2.3)
+      azure-core (~> 0.1)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.10)
+      mime-types (>= 1, < 4.0)
+      nokogiri (~> 1.6)
+      systemu (~> 2.6)
+      thor (~> 0.19)
+    azure-core (0.1.7)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.10)
+      nokogiri (~> 1.6)
     bcrypt (3.1.11)
     buftok (0.2.0)
     builder (3.2.3)
@@ -205,6 +218,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    systemu (2.6.5)
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
@@ -252,6 +266,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-import
   annotate
+  azure
   byebug
   coffee-rails (~> 4.2)
   devise

@@ -41,6 +41,10 @@ gem 'turnout'
 #エクセル操作
 gem 'roo'
 
+gem "azure"
+gem 'kintone'
+gem 'kintone_sync', github: 'pandeiro245/kintone_sync'
+
 gem 'whenever', :require => false
 
 gem 'kintone'
