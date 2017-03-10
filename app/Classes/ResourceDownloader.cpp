@@ -26,7 +26,7 @@ void ResourceDownloader::download(std::string url, const std::function<void(std:
 void ResourceDownloader::onHttpRequestCompleted(HttpClient* client, HttpResponse* response, const std::function<void(std::string)>& onDownloadCompleted) {
     if (!response->isSucceed()) {return;}
     
-    std::string filePath = cocos2d::FileUtils::sharedFileUtils()->getWritablePath() + "image.png";
+    std::string filePath = cocos2d::FileUtils::getInstance()->getWritablePath() + "image.png";
     
     std::vector<char> *buffer = response->getResponseData();
     std::ofstream ofs;
