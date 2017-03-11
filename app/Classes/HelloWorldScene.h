@@ -8,6 +8,8 @@ class HelloWorld : public cocos2d::Layer
 {
 private:
     WebSocket* mWebsocket;
+    cocos2d::LayerColor* colorLayer;
+    float mTimeCounter = 0;
 public:
     static cocos2d::Scene* createScene();
 
