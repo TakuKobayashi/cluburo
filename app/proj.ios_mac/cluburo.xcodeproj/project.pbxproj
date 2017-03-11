@@ -16,13 +16,6 @@
 		317B53C01E7435F100A3803D /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317B53BE1E7435F100A3803D /* TitleScene.cpp */; };
 		317B53C41E74364800A3803D /* RoomListScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317B53C21E74364800A3803D /* RoomListScene.cpp */; };
 		317B53C71E743D4200A3803D /* RoomDetailScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317B53C51E743D4200A3803D /* RoomDetailScene.cpp */; };
-		317B53CA1E74413700A3803D /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = 317B53C91E74413700A3803D /* 01.png */; };
-		317B53D11E74426000A3803D /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = 317B53CB1E74426000A3803D /* 01.png */; };
-		317B53D21E74426000A3803D /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = 317B53CC1E74426000A3803D /* 02.png */; };
-		317B53D31E74426000A3803D /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = 317B53CD1E74426000A3803D /* 03.png */; };
-		317B53D41E74426000A3803D /* 04.png in Resources */ = {isa = PBXBuildFile; fileRef = 317B53CE1E74426000A3803D /* 04.png */; };
-		317B53D51E74426000A3803D /* 05.png in Resources */ = {isa = PBXBuildFile; fileRef = 317B53CF1E74426000A3803D /* 05.png */; };
-		317B53D61E74426000A3803D /* 07.png in Resources */ = {isa = PBXBuildFile; fileRef = 317B53D01E74426000A3803D /* 07.png */; };
 		317B53DB1E74A9ED00A3803D /* startscene in Resources */ = {isa = PBXBuildFile; fileRef = 317B53DA1E74A9ED00A3803D /* startscene */; };
 		317B53E51E74C31B00A3803D /* roomdetail in Resources */ = {isa = PBXBuildFile; fileRef = 317B53E41E74C31B00A3803D /* roomdetail */; };
 		317B53E71E74C32400A3803D /* roomlistscene in Resources */ = {isa = PBXBuildFile; fileRef = 317B53E61E74C32400A3803D /* roomlistscene */; };
@@ -138,13 +131,6 @@
 		317B53C31E74364800A3803D /* RoomListScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RoomListScene.hpp; sourceTree = "<group>"; };
 		317B53C51E743D4200A3803D /* RoomDetailScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoomDetailScene.cpp; sourceTree = "<group>"; };
 		317B53C61E743D4200A3803D /* RoomDetailScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RoomDetailScene.hpp; sourceTree = "<group>"; };
-		317B53C91E74413700A3803D /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
-		317B53CB1E74426000A3803D /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
-		317B53CC1E74426000A3803D /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
-		317B53CD1E74426000A3803D /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
-		317B53CE1E74426000A3803D /* 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 04.png; sourceTree = "<group>"; };
-		317B53CF1E74426000A3803D /* 05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05.png; sourceTree = "<group>"; };
-		317B53D01E74426000A3803D /* 07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 07.png; sourceTree = "<group>"; };
 		317B53D91E74A9B800A3803D /* MainScene.csb */ = {isa = PBXFileReference; lastKnownFileType = file; path = MainScene.csb; sourceTree = "<group>"; };
 		317B53DA1E74A9ED00A3803D /* startscene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = startscene; sourceTree = "<group>"; };
 		317B53E41E74C31B00A3803D /* roomdetail */ = {isa = PBXFileReference; lastKnownFileType = folder; path = roomdetail; sourceTree = "<group>"; };
@@ -400,13 +386,6 @@
 		5087E77117EB970100C73F5D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				317B53CB1E74426000A3803D /* 01.png */,
-				317B53CC1E74426000A3803D /* 02.png */,
-				317B53CD1E74426000A3803D /* 03.png */,
-				317B53CE1E74426000A3803D /* 04.png */,
-				317B53CF1E74426000A3803D /* 05.png */,
-				317B53D01E74426000A3803D /* 07.png */,
-				317B53C91E74413700A3803D /* 01.png */,
 				521A8E6219F0C34300D177D7 /* Default-667h@2x.png */,
 				521A8E6319F0C34300D177D7 /* Default-736h@3x.png */,
 				5087E77217EB970100C73F5D /* Default-568h@2x.png */,
@@ -533,7 +512,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				317B53D61E74426000A3803D /* 07.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
@@ -544,25 +522,19 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
-				317B53D11E74426000A3803D /* 01.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				317B53E51E74C31B00A3803D /* roomdetail in Resources */,
-				317B53D21E74426000A3803D /* 02.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
-				317B53D31E74426000A3803D /* 03.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				317B53E71E74C32400A3803D /* roomlistscene in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
-				317B53D51E74426000A3803D /* 05.png in Resources */,
-				317B53CA1E74413700A3803D /* 01.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				317B53DB1E74A9ED00A3803D /* startscene in Resources */,
-				317B53D41E74426000A3803D /* 04.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
