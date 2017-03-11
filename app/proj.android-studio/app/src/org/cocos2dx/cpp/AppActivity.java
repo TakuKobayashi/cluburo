@@ -23,47 +23,81 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import java.io.IOException;
+
 public class AppActivity extends Cocos2dxActivity {
+    private static int PERMISSION_REQUEST_CODE = 1;
     private Camera mCamera;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(savedInstanceState);
+        ApplicationHelper.requestPermissions(this, PERMISSION_REQUEST_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if(ApplicationHelper.hasSelfPermission(this, Manifest.permission.CAMERA)){
+                startCamera();
+            }
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(mCamera == null) {
-            mCamera = Camera.open();
+        if(ApplicationHelper.hasSelfPermission(this, Manifest.permission.CAMERA)){
+            startCamera();
         }
-        Camera.Parameters p = mCamera.getParameters();
-        p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-        mCamera.setParameters(p);
-        mCamera.startPreview();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
+    private void startCamera(){
+        if(mCamera == null) {
+            mCamera = Camera.open();
+            Camera.Parameters p = mCamera.getParameters();
+            // Lollipop以降はこうしないとフラッシュライトが炊けないらしい
+            if(Build.VERSION.SDK_INT >= 21) {
+                SurfaceTexture preview = new SurfaceTexture(0);
+                try {
+                    mCamera.setPreviewTexture(preview);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+            mCamera.setParameters(p);
+            mCamera.startPreview();
+        }
+    }
+
+    private void stopCamera(){
         if(mCamera != null) {
             Camera.Parameters p = mCamera.getParameters();
             p.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
             mCamera.setParameters(p);
             mCamera.stopPreview();
+            mCamera.release();
+            mCamera = null;
         }
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mCamera = null;
+    protected void onPause() {
+        super.onPause();
+        stopCamera();
     }
 }
