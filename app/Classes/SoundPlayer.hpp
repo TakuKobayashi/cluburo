@@ -23,17 +23,17 @@ private:
 public:
     static SoundPlayer* create(std::string filePath);
     
-    virtual void load();
-    virtual void play();
-    virtual void pause();
-    virtual void stop();
-    virtual int getSoundId();
-    virtual float getCurrentTime ();
-    virtual float getDuration();
-    virtual void setVolume (float volume);
-    virtual float getVolume ();
-    virtual void setLoop (bool loop);
-    virtual bool isLoop ();
+    void load();
+    void play();
+    void pause();
+    void stop();
+    int getSoundId();
+    float getCurrentTime ();
+    float getDuration();
+    void setVolume (float volume);
+    float getVolume ();
+    void setLoop (bool loop);
+    bool isLoop ();
     bool isPlaying();
     ~SoundPlayer();
 };
