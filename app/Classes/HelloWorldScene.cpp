@@ -23,7 +23,7 @@ bool HelloWorld::init()
 {
     
     // インスタンス生成
-    mWebsocket = new WebSocket("wss://websocketapisample.herokuapp.com/");
+    mWebsocket = new WebSocket("ws://40.74.133.145:3000/");
     
     // イベント設定
     mWebsocket->onConnectionOpened = []() {
