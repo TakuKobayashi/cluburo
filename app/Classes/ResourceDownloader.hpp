@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "network/HttpClient.h"
+#include "SoundPlayer.hpp"
 #include <fstream>
 
 class ResourceDownloader : public cocos2d::Ref{

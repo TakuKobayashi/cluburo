@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "WebSocket.h"
+#include "ResourceDownloader.hpp"
 
 class HelloWorld : public cocos2d::Layer
 {

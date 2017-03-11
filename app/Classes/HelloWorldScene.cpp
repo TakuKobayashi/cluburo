@@ -101,6 +101,12 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
 //    this->addChild(sprite, 0);
 
+    auto downloader = new ResourceDownloader();
+    downloader->download("https://cluburo.blob.core.windows.net/cluburo/radio.mp3", [this](std::string savedFilePath) {
+        log("-----------------------");
+        log("%s", savedFilePath.c_str());
+    });
+    
     scheduleUpdate();
     return true;
 }

@@ -8,6 +8,8 @@
 
 #include "ResourceDownloader.hpp"
 
+USING_NS_CC;
+
 using namespace cocos2d::network;
 
 // HTTP通信
@@ -26,13 +28,16 @@ void ResourceDownloader::download(std::string url, const std::function<void(std:
 void ResourceDownloader::onHttpRequestCompleted(HttpClient* client, HttpResponse* response, const std::function<void(std::string)>& onDownloadCompleted) {
     if (!response->isSucceed()) {return;}
     
-    std::string filePath = cocos2d::FileUtils::getInstance()->getWritablePath() + "image.png";
+    std::string filePath = cocos2d::FileUtils::getInstance()->getWritablePath() + "radio.mp3";
     
     std::vector<char> *buffer = response->getResponseData();
     std::ofstream ofs;
-    ofs.open(filePath.c_str(), std::ios::out | std::ios::trunc);
+    ofs.open(filePath.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
     ofs.write(&(buffer->front()), buffer->size());
     ofs.flush();
     ofs.close();
-    onDownloadCompleted(filePath);
+    
+    auto player = SoundPlayer::create(filePath);
+    player->play();
+//    onDownloadCompleted(filePath);
 }
