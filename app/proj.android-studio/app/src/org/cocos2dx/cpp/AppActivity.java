@@ -29,21 +29,27 @@ import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 import java.io.IOException;
+import java.util.Timer;
 
 public class AppActivity extends Cocos2dxActivity {
     private static int PERMISSION_REQUEST_CODE = 1;
     private Camera mCamera;
+    private Handler mHandler;
+    private Runnable mFlashRunnable;
+    private boolean mIsFlashing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(savedInstanceState);
+        mHandler = new Handler();
         ApplicationHelper.requestPermissions(this, PERMISSION_REQUEST_CODE);
     }
 
@@ -68,7 +74,6 @@ public class AppActivity extends Cocos2dxActivity {
     private void startCamera(){
         if(mCamera == null) {
             mCamera = Camera.open();
-            Camera.Parameters p = mCamera.getParameters();
             // Lollipop以降はこうしないとフラッシュライトが炊けないらしい
             if(Build.VERSION.SDK_INT >= 21) {
                 SurfaceTexture preview = new SurfaceTexture(0);
@@ -78,21 +83,51 @@ public class AppActivity extends Cocos2dxActivity {
                     ex.printStackTrace();
                 }
             }
-            p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-            mCamera.setParameters(p);
+            cameraFlash(true);
             mCamera.startPreview();
         }
+        FlashTimerRoutine();
+    }
+
+    private void FlashTimerRoutine(){
+        mFlashRunnable = new Runnable() {
+            public void run() {
+                cameraFlash(!mIsFlashing);
+                mHandler.removeCallbacks(mFlashRunnable);
+                calcLightRoutine();
+            }
+        };
+        calcLightRoutine();
+    }
+
+    private void calcLightRoutine(){
+        long time = 400;
+        if(mIsFlashing){
+            time = 100;
+        }
+        mHandler.postDelayed(mFlashRunnable, time);
+    }
+
+    private void cameraFlash(boolean isOn){
+        if(mCamera == null) return;
+        mIsFlashing = isOn;
+        Camera.Parameters p = mCamera.getParameters();
+        if(isOn) {
+            p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+        }else{
+            p.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+        }
+        mCamera.setParameters(p);
     }
 
     private void stopCamera(){
         if(mCamera != null) {
-            Camera.Parameters p = mCamera.getParameters();
-            p.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-            mCamera.setParameters(p);
+            cameraFlash(false);
             mCamera.stopPreview();
             mCamera.release();
             mCamera = null;
         }
+        mHandler.removeCallbacks(mFlashRunnable);
     }
 
     @Override
