@@ -1,3 +1,22 @@
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font: 13px Helvetica, Arial; }
+  form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+  form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+  form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+    #messages { list-style-type: none; margin: 0; padding: 0; }
+    #messages li { padding: 5px 10px; }
+    #messages li:nth-child(odd) { background: #eee; }
+    .plugin-java_script{
+      text-align: right;
+    }
+</style>
+<h1>Chat</h1>
+
+<ul id="messages"></ul>
+<form action="">
+  <input id="m" autocomplete="off" /><button>Send</button>
+</form>
 <script>
   var url = window.location.href
   var host = window.document.location.host;
@@ -7,10 +26,26 @@
   }else{
    ws = new WebSocket('ws://' + host + "/cable");
   }
-  var create_room = function(){
-    var command = {command: "subscribe"}
-    var channel_params = {channel: "DjRoomsChannel", room_id: <%= 1 %>}
+  var send_cable_format = function(command_name, params){
+    var command = {command: command_name}
+    var channel_params = {channel: "DjRoomsChannel"};
+    if(command_name == "message"){
+      command["data"] = JSON.stringify(params);
+    }else{
+      channel_params = Object.assign(params, channel_params);
+    }
     command["identifier"] = JSON.stringify(channel_params);
+    console.log(command);
+    return command;
+  };
+  $('form').submit(function(){
+//    var command = send_cable_format("message", {action: "play", message: $('#m').val()})
+    var command = send_cable_format("subscribe", {message: $('#m').val()})
+    ws.send(JSON.stringify(command));
+    return false;
+  });
+  var create_room = function(){
+    var command = send_cable_format("subscribe", {room_id: <%= 1 %>})
     ws.send(JSON.stringify(command));
   }
   ws.onopen = function(event){
@@ -18,12 +53,6 @@
   };
   ws.onmessage = function (event) {
     console.log(event);
-    //$("#list").append($('<li>').text(event.data));
+    $('#messages').append($('<li>').text(event.data));
   };
 </script>
-<h1>Chat</h1>
-
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="message_sender">
-</form>

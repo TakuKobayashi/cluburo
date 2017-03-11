@@ -10,5 +10,6 @@ class DjRoomsChannel < ApplicationCable::Channel
   end
 
   def play
+  	logger.info "play"
   end
 end
