@@ -87,7 +87,7 @@ bool HelloWorld::init()
     Size s = Director::getInstance()->getVisibleSize();
     
     //レイヤーを作成　色：RGBA(51,75,112,255)　サイズ：画面サイズの80%
-    colorLayer = LayerColor::create(Color4B(0, 255, 0, 255), s.width, s.height);
+    colorLayer = LayerColor::create(Color4B(0, 0, 0, 255), s.width, s.height);
     Size layerSize = colorLayer->getContentSize();
     colorLayer->setPosition(Vec2(origin.x, origin.y));
     this->addChild(colorLayer);
@@ -113,15 +113,11 @@ bool HelloWorld::init()
 
 void HelloWorld::update(float dt){
     mTimeCounter += dt;
-    if(0 < mTimeCounter && mTimeCounter <= 1){
-        colorLayer->setColor(Color3B(0, 255, 0));
-    }else if(1 < mTimeCounter && mTimeCounter <= 2){
-        colorLayer->setColor(Color3B(255, 0, 0));
-    }else if(2 < mTimeCounter && mTimeCounter <= 3){
-        colorLayer->setColor(Color3B(0, 0, 255));
-    }else{
-        mTimeCounter = 0;
+    if(mTimeCounter >= 0.5){
+        mTimeCounter = mTimeCounter - 1;
     }
+    float graColor = std::abs(mTimeCounter);
+    colorLayer->setColor(Color3B(255 * graColor / 0.5, 0, 255 * graColor / 0.5));
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
