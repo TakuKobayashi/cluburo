@@ -4,6 +4,13 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
+        <Folder Name="startscene">
+          <Image Name="back_color_black.png" />
+          <Image Name="background_start.png" />
+          <Image Name="button_start.png" />
+          <Image Name="icon.png" />
+          <Image Name="logo.png" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>
