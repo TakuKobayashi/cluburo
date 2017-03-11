@@ -8,12 +8,9 @@ Rails.application.routes.draw do
     post :logout
   end
 
-  resources :dj_room, only: [:index,:show,:new,:create] do
-    member do
-      post :join
-    end
-    collection do
-      get :playing
-    end
+  resource :dj_room, only: [:show,:new,:create] do
+    get :detail
+    post :join
+    get :playing
   end
 end

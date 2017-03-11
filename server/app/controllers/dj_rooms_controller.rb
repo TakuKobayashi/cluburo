@@ -1,8 +1,8 @@
 class DjRoomsController < BaseController
-  def index
+  def show
   end
 
-  def show
+  def detail
   end
 
   def new
