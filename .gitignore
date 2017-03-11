@@ -107,3 +107,18 @@ server/public/assets/
 
 server/.byebug_history
 server/config/aws.yml
+
+nodejs/node_modules
+nodejs/bower_components
+nodejs/lib-cov
+*.seed
+*.log
+*.out
+*.pid
+nodejs/npm-debug.log
+*#
+.DS_STORE
+nodejs/.netbeans
+nodejs/nbproject
+nodejs/.idea
+nodejs/.node_history
