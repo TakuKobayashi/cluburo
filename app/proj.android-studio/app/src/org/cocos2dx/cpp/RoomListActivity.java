@@ -35,7 +35,7 @@ public class RoomListActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setContentView(ExtraLayout.getInstance(ExtraLayout.class).getParenetView(R.layout.room_list_view));
+        setContentView(R.layout.room_list_view);
         ListView roomListView = (ListView) findViewById(R.id.roomListView);
 
         HashMap<String, Bitmap> imageHash = new HashMap<String, Bitmap>();
@@ -53,9 +53,10 @@ public class RoomListActivity extends Activity {
             e1.printStackTrace();
         }
         mRoomAdapter = new RoomCellAdapter(this, imageHash);
+        roomListView.setAdapter(mRoomAdapter);
 
         HashMap<String, String> params = new HashMap<String, String>();
-        httpRequest(Request.Method.POST, Config.ROOT_URL + "/api/rooms", params, new Response.Listener<String>() {
+        httpRequest(Request.Method.GET, Config.ROOT_URL + "/api/rooms", params, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
@@ -76,6 +77,7 @@ public class RoomListActivity extends Activity {
     }
 
     private void httpRequest(int method, String url , final Map<String, String> params, Response.Listener response){
+        Log.d(Config.TAG, "url:" + url);
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(method ,url, response, new Response.ErrorListener(){
             @Override
