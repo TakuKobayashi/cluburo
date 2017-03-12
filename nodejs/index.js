@@ -20,11 +20,10 @@ var kintone = require('kintone');
 
 var socket_action = require('./socket_action.js');
  
-var api = new kintone('g94co.cybozu.com', { token: "tCuyCZ2VqM8Dl6SfrJuEe08hWBzO6rQRQTbesgwC" });
+var soundApi = new kintone('g94co.cybozu.com', { token: "tCuyCZ2VqM8Dl6SfrJuEe08hWBzO6rQRQTbesgwC" });
 
 var soundList = []
-console.log(api.record);
-api.records.get({app: 4}, function(err, response) {
+soundApi.records.get({app: 4}, function(err, response) {
   soundList = response.records;
 });
 
@@ -65,6 +64,22 @@ app.get('/jquery/jquery.js', function(req, res) {
 });
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/api/rooms', function(req, res){
+  var roomApi = new kintone('g94co.cybozu.com', { token: "8hMuswxuso9IaBYpCrNmsqeV9D8iaGa2jMeHoNlz" });
+  roomApi.records.get({app: 7}, function(err, response) {
+    var records = response.records
+    res.send(JSON.stringify(records.map(function(r){
+      return {
+        id: parseInt(r['$id'].value),
+        name: r.name.value,
+        count: parseInt(r.count.value),
+        degree: parseInt(r.degree.value),
+        description: r.description.value
+      };
+    })));
+  });
 });
 
 //サーバーと接続されると呼ばれる
