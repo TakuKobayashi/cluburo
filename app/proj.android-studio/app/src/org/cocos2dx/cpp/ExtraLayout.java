@@ -181,9 +181,9 @@ public class ExtraLayout extends ContextSingletonBase<ExtraLayout>{
   public Bitmap resizeBaseBitmap(Bitmap image){
     float ratio = getResizeRatio();
     Bitmap resizedImage = Bitmap.createScaledBitmap(image, (int)(image.getWidth() * ratio),(int)(image.getHeight() * ratio), true);
+    Bitmap result = resizedImage.copy(Bitmap.Config.ARGB_8888, true);
     image.recycle();
     image = null;
-    Bitmap result = resizedImage.copy(Bitmap.Config.ARGB_8888, true);
     resizedImage.recycle();
     resizedImage = null;
     return result;

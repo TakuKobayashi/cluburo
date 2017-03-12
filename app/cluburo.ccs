@@ -3,6 +3,14 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
+        <Folder Name="roomdetail">
+          <Image Name="bace_color01.png" />
+          <Image Name="back_color_black.png" />
+          <Image Name="button_back.png" />
+          <Image Name="button_join.png" />
+          <Image Name="icon_live.png" />
+          <Image Name="thumbnail01.png" />
+        </Folder>
         <Folder Name="roomlistscene">
           <Image Name="back_color_black.png" />
           <Image Name="base_color01.png" />
@@ -24,13 +32,8 @@
           <Image Name="logo.png" />
         </Folder>
         <Project Name="MainScene.csd" Type="Scene" />
-        <Folder Name="roomdetail">
-          <Image Name="bace_color01.png" />
-          <Image Name="back_color_black.png" />
-          <Image Name="button_back.png" />
-          <Image Name="button_join.png" />
-          <Image Name="icon_live.png" />
-          <Image Name="thumbnail01.png" />
+        <Folder Name="sprash">
+          <Image Name="sprash.png" />
         </Folder>
       </RootFolder>
     </Group>
