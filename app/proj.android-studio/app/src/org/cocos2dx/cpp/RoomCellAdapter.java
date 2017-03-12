@@ -62,16 +62,16 @@ public class RoomCellAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = mActivity.getLayoutInflater().inflate(R.layout.room_cell_view,null);
         }
-        Bitmap bgImage = ExtraLayout.getInstance(ExtraLayout.class).resizeBaseBitmap(mImages.get("base_color01.png"));
+        Bitmap bgImage = mImages.get("base_color01.png");
 
         ImageView bg = (ImageView) convertView.findViewById(R.id.roomCellBg);
         bg.setImageBitmap(bgImage);
 
         ImageView roomIcon = (ImageView) convertView.findViewById(R.id.roomIconView);
-        roomIcon.setImageBitmap(ExtraLayout.getInstance(ExtraLayout.class).resizeBaseBitmap(mImages.get("thumbnail01.png")));
+        roomIcon.setImageBitmap(mImages.get("thumbnail01.png"));
 
         ImageView liveIcon = (ImageView) convertView.findViewById(R.id.roomLiveIcon);
-        liveIcon.setImageBitmap(ExtraLayout.getInstance(ExtraLayout.class).resizeBaseBitmap(mImages.get("icon_live.png")));
+        liveIcon.setImageBitmap(mImages.get("icon_live.png"));
 
         TextView title = (TextView) convertView.findViewById(R.id.roomTitleText);
         title.setText(mRooms.get(position).name);
@@ -80,7 +80,7 @@ public class RoomCellAdapter extends BaseAdapter {
         djText.setText(mRooms.get(position).description);
 
         ImageView roomDetailButton = (ImageView) convertView.findViewById(R.id.roomDetailButton);
-        roomDetailButton.setImageBitmap(ExtraLayout.getInstance(ExtraLayout.class).resizeBaseBitmap(mImages.get("button_.png")));
+        roomDetailButton.setImageBitmap(mImages.get("button_.png"));
         roomDetailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +90,7 @@ public class RoomCellAdapter extends BaseAdapter {
         });
 
         ImageView roomJoinButton = (ImageView) convertView.findViewById(R.id.roomJoinButton);
-        roomJoinButton.setImageBitmap(ExtraLayout.getInstance(ExtraLayout.class).resizeBaseBitmap(mImages.get("button_entry.png")));
+        roomJoinButton.setImageBitmap(mImages.get("button_entry.png"));
         roomJoinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
