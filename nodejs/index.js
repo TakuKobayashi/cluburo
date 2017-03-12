@@ -23,7 +23,9 @@ var kintone = require('kintone');
 
 var socket_action = require('./socket_action.js');
  
-var soundApi = new kintone('g94co.cybozu.com', { token: "tCuyCZ2VqM8Dl6SfrJuEe08hWBzO6rQRQTbesgwC" });
+var soundApi=new kintone('g94co.cybozu.com',{ token: "tCuyCZ2VqM8Dl6SfrJuEe08hWBzO6rQRQTbesgwC" });
+
+var room;
 
 var soundList = []
 soundApi.records.get({app: 4}, function(err, response) {
@@ -136,12 +138,13 @@ app.get("/submit",function (req,res) {
             arry.forEach(function (value) {
                 var sound={
                     'filename': value["filename"]["value"],
-                    'filepath': value["filepath"]["value"]
+                    'filepath': value["filepath"]["value"],
                 };
                 if (value["filename"]["value"]!="test1"&&value["filename"]["value"]!="test2")
                     sounds.push(sound);
             });
             if (result["errors"]==null) {
+                room=room_name;
                 res.render('inRoom.ejs',{
                     room_name: room_name,
                     room_description: room_desc,
@@ -183,3 +186,23 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
 });
+
+function RoomDelete() {
+    var api_room=new kintone("g94co.cybozu.com",{ token: "8hMuswxuso9IaBYpCrNmsqeV9D8iaGa2jMeHoNlz" });
+    var deleteID;
+    api_room.records.get({ app: 7 },function (err,res) {
+        var arry=res["records"];
+        arry.forEach(function (value) {
+            var name=value["name"]["value"];
+            var desc=value["description"]["value"];
+            var id=value["$id"]["value"];
+
+            if (room==name) {
+                deleteID=id;
+            }
+        });
+    });
+    api_room.records.delete({ app: 7,"ids": deleteID },function (err,result) {
+        console.log(result)
+    });
+}
