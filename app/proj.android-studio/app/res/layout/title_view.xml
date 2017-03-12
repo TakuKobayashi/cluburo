@@ -4,58 +4,42 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/battleBgImage"
+        android:id="@+id/titleBg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         />
 
     <ImageView
-        android:id="@+id/enemyImage"
+        android:id="@+id/titleLogoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        />
+
+    <ImageView
+        android:id="@+id/startLogoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+    />
+
+    <ImageView
+        android:id="@+id/startButtonView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         />
 
-    <ImageView
-        android:id="@+id/enemybarbgImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/enemyImage"
-        android:layout_centerHorizontal="true"
-    />
-
-    <ImageView
-            android:id="@+id/enemybarImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/enemybarbgImage"
-            android:layout_alignBottom="@+id/enemybarbgImage"
-            />
-
-    <ImageView
-        android:id="@+id/battleComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/enemyImage"
-        />
-
-    <ImageView
-        android:id="@+id/userbarbgImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/battleComment"
-    />
-
      <ImageView
-        android:id="@+id/userbarImage"
+        android:id="@+id/footerIconView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/userbarbgImage"
-        android:layout_alignBottom="@+id/userbarbgImage"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
      />
 
 </RelativeLayout>
