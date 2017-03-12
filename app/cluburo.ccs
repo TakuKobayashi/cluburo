@@ -1,0 +1,41 @@
+<Solution>
+  <PropertyGroup Name="cluburo" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="roomdetail">
+          <Image Name="bace_color01.png" />
+          <Image Name="back_color_black.png" />
+          <Image Name="button_back.png" />
+          <Image Name="button_join.png" />
+          <Image Name="icon_live.png" />
+          <Image Name="thumbnail01.png" />
+        </Folder>
+        <Folder Name="roomlistscene">
+          <Image Name="back_color_black.png" />
+          <Image Name="base_color01.png" />
+          <Image Name="base_color02.png" />
+          <Image Name="base_color03.png" />
+          <Image Name="base_color04.png" />
+          <Image Name="button_.png" />
+          <Image Name="button_back.png" />
+          <Image Name="button_entry.png" />
+          <Image Name="icon_live.png" />
+          <Image Name="tab_detail.png" />
+          <Image Name="thumbnail01.png" />
+        </Folder>
+        <Folder Name="startscene">
+          <Image Name="back_color_black.png" />
+          <Image Name="background_start.png" />
+          <Image Name="button_start.png" />
+          <Image Name="icon.png" />
+          <Image Name="logo.png" />
+        </Folder>
+        <Project Name="MainScene.csd" Type="Scene" />
+        <Folder Name="sprash">
+          <Image Name="sprash.png" />
+        </Folder>
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

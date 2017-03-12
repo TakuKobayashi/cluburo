@@ -86,7 +86,7 @@ public class AppActivity extends Cocos2dxActivity {
             cameraFlash(true);
             mCamera.startPreview();
         }
-        FlashTimerRoutine();
+        //FlashTimerRoutine();
     }
 
     private void FlashTimerRoutine(){

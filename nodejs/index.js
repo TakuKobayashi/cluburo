@@ -16,8 +16,28 @@ var io = require('socket.io').listen(server);
 var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({server:server});
 
-var connections = []; 
+var kintone = require('kintone');
+
+var socket_action = require('./socket_action.js');
+ 
+var api = new kintone('g94co.cybozu.com', { token: "tCuyCZ2VqM8Dl6SfrJuEe08hWBzO6rQRQTbesgwC" });
+
+var soundList = []
+console.log(api.record);
+api.records.get({app: 4}, function(err, response) {
+  soundList = response.records;
+});
+
+var connections = [];
 wss.on('connection', function (ws) {
+  ws.send(
+    JSON.stringify({
+      action: "play_sound",
+      filename: soundList[0].filename.value,
+      filepath: soundList[0].filepath.value,
+    })
+  );
+
   console.log('connect!!');
   connections.push(ws);
   ws.on('close', function () {
@@ -27,6 +47,12 @@ wss.on('connection', function (ws) {
     });
   });
   ws.on('message', function (message) {
+    try {
+      var json = JSON.parse(message);
+      var action = socket_action[json.action];
+    } catch (e) {
+      console.log("parseError:" + e);
+    }
     console.log('message:', message);
     connections.forEach(function (con, i) {
       con.send(message);

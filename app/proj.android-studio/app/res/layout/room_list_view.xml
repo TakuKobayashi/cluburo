@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/recoverBgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageView
+        android:id="@+id/recoverCommentImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spacer"
+        android:layout_centerHorizontal="true"
+        />
+
+    <View
+        android:id="@+id/spacer"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:layout_centerInParent="true"
+    />
+
+    <ImageButton
+        android:id="@+id/recoverYesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:layout_toLeftOf="@+id/spacer"
+        android:layout_below="@+id/spacer"
+        />
+
+    <ImageButton
+        android:id="@+id/recoverNoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:layout_toRightOf="@+id/spacer"
+        android:layout_below="@+id/spacer"
+        />
+</RelativeLayout>

@@ -16,9 +16,9 @@
 
 class ResourceDownloader : public cocos2d::Ref{
 private:
-    void onHttpRequestCompleted(cocos2d::network::HttpClient* client, cocos2d::network::HttpResponse* response, const std::function<void(std::string)>& onDownloadCompleted);
+    void onHttpRequestCompleted(cocos2d::network::HttpClient* client, cocos2d::network::HttpResponse* response);
 public:
-    void download(std::string url, const std::function<void(std::string)>& onDownloadCompleted);
+    void download(std::string url);
 };
 
 
