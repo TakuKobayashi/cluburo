@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+
+    <ImageView
+        android:id="@+id/tweetCommentImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tweetspacer"
+        android:layout_centerHorizontal="true"
+        />
+
+    <View
+        android:id="@+id/tweetspacer"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:layout_centerInParent="true"
+    />
+
+    <ImageButton
+        android:id="@+id/tweetCameraButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tweetspacer"
+        />
+
+</RelativeLayout>
