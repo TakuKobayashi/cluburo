@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/roomCellBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+    />
+
+    <ImageView
+        android:id="@+id/roomIconView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+    />
+
+    <ImageView
+        android:id="@+id/roomLiveIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/roomIconView"
+        android:layout_below="@+id/roomIconView"
+        />
+
+    <TextView
+        android:id="@+id/roomTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/roomIconView"
+        android:layout_alignTop="@+id/roomIconView"
+        />
+
+    <TextView
+        android:id="@+id/roomDjText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/roomIconView"
+        android:layout_below="@+id/roomTitleText"
+        />
+
+    <ImageView
+        android:id="@+id/roomDetailButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/roomDjText"
+        />
+
+    <ImageView
+        android:id="@+id/roomJoinButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/roomDetailButton"
+        android:layout_below="@+id/roomDjText"
+        />
+
+</RelativeLayout>
