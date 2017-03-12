@@ -15,7 +15,8 @@
     "websocket.io": "*",
     "ejs": "*",
     "jquery":"*",
-    "nodemon":"*"
+    "nodemon":"*",
+    "kintone":"*"
   },
   "repository": {
     "type": "git",
