@@ -51,7 +51,20 @@ wss.on('connection', function (ws) {
   ws.on('message', function (message) {
     try {
       var json = JSON.parse(message);
-      var action = socket_action[json.action];
+      if(json.action == "change_sound"){
+        soundList.forEach(function(s){
+          if(s['$id'].value == json.sound_id){
+            connections.forEach(function (con, i) {
+              con.send(JSON.stringify({
+                action: "play_sound",
+                filename: s.filename.value,
+                filepath: s.filepath.value
+              }));
+            });
+            return;
+          }
+        });
+      }
     } catch (e) {
       console.log("parseError:" + e);
     }

@@ -39,10 +39,26 @@
         </tbody>
       </table>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/jquery/jquery.js"></script>
     <script>
-      function Play(filepath){
-       
+      var url = window.location.href
+      var host = window.document.location.host;
+      var ws;
+      if(url.startsWith("https://")){
+        ws = new WebSocket('wss://' + host);
+      }else{
+        ws = new WebSocket('ws://' + host);
       }
+      function Play(filepath){
+        var params = {action: "change_sound", sound_id: filepath}
+        ws.send(JSON.stringify(params));
+      };
+      //socketioを使いserverにconnectする(socketioの場合)
+      //var socket = io.connect("ws://" + location.host);
+      ws.onmessage = function (event) {
+         console.log(event);
+      };
     </script>
   </body>
 </html>
