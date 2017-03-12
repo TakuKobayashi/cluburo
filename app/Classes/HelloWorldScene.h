@@ -4,6 +4,10 @@
 #include "cocos2d.h"
 #include "WebSocket.h"
 #include "ResourceDownloader.hpp"
+#include "json/rapidjson.h"
+#include "json/document.h"
+#include "json/stringbuffer.h"
+#include "json/writer.h"
 
 class HelloWorld : public cocos2d::Layer
 {

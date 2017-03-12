@@ -32,6 +32,17 @@ bool HelloWorld::init()
     };
     mWebsocket->onMessageReceived = [](std::string message) {
         log("%s",message.c_str());
+        rapidjson::Document document;
+        if (document.Parse(message.c_str()).HasParseError()) {
+            log("parse error!!");
+        }
+        std::string str = "play_sound";
+        log("%s", document["action"].GetString());
+        if(document["action"].GetString() == str){
+            std::string url = "https://cluburo.blob.core.windows.net/cluburo/";
+            auto downloader = new ResourceDownloader();
+            downloader->download(url.append(document["filepath"].GetString()));
+        }
         // do something
     };
     mWebsocket->onConnectionClosed = []() {
@@ -101,12 +112,6 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
 //    this->addChild(sprite, 0);
 
-    auto downloader = new ResourceDownloader();
-    downloader->download("https://cluburo.blob.core.windows.net/cluburo/radio.mp3", [this](std::string savedFilePath) {
-        log("-----------------------");
-        log("%s", savedFilePath.c_str());
-    });
-    
     scheduleUpdate();
     return true;
 }
